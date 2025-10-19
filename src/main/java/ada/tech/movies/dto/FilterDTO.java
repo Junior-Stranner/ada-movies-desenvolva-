@@ -2,6 +2,8 @@ package ada.tech.movies.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.time.LocalDate;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FilterDTO {
     private String title;
@@ -49,3 +51,4 @@ public class FilterDTO {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+}
