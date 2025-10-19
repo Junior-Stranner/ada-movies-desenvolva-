@@ -1,5 +1,6 @@
 package ada.tech.movies.controller;
 
+import ada.tech.movies.dto.FilterDTO;
 import ada.tech.movies.model.Movie;
 import ada.tech.movies.repository.MovieRepository;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +18,8 @@ public class MovieController {
     }
 
     @GetMapping
-    public List<Movie> getMovies(@RequestParam(required = false) String genre) {
-        if (genre == null) {
-            return movieRepository.findAll();
-        }
-        return movieRepository.findByGenreNative(genre);
+    public List<Movie> getMovies(@ModelAttribute FilterDTO filterDTO) {
+        return movieRepository.findByFilters(filterDTO);
     }
 
     @PostMapping
